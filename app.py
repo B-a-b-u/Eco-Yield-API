@@ -18,6 +18,15 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  
+    allow_credentials=True,
+    allow_methods=["*"],  
+    allow_headers=["*"], 
+)
+
+
 def get_soil_data():
     extracted_values = dict()
     with pdfplumber.open('/content/SoilReport.pdf') as file:
